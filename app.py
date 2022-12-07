@@ -1,12 +1,12 @@
 from utils.config import app
-from utils.db import db, engine
+# from utils.config import db, engine
 from models.tasks import Task
 from utils.session import session
 
 if __name__ == '__main__':
 
-    db.metadata.drop_all(engine)
-    db.metadata.create_all(engine)
+    # db.metadata.drop_all(engine)
+    # db.metadata.create_all(engine)
 
     task1 =  Task(
         title="hello workd",

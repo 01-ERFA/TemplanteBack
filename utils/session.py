@@ -1,4 +1,4 @@
-from utils.db import engine
+from utils.utils import engine
 from sqlalchemy.orm import sessionmaker
 
 

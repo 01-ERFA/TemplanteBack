@@ -1,10 +1,10 @@
 import os
 from flask import Flask
 from routes.home import home
-from flask_sqlalchemy import SQLAlchemy
+from utils.utils import db
 from flask_cors import CORS
 
-from utils.date import *
+from utils.utils import migrate
 
 app = Flask(__name__)
 
@@ -15,12 +15,10 @@ app.config['SECRET_KEY'] = secret_key
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
-
 db.init_app(app)
+migrate.init_app(app, db)
 
 CORS(app)
-
 
 # app.register_blueprint(api, url_prefix='/api')
 app.register_blueprint(home)
