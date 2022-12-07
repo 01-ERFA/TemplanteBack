@@ -1,6 +1,6 @@
 import os, shutil
 from subprocess import check_output
-from utils import db, engine
+from utils import engine
 from date import db_reset
 
 
