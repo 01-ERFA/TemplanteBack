@@ -2,8 +2,9 @@ import os
 from flask import Flask
 from routes.home import home
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
-from date import *
+from utils.date import *
 
 app = Flask(__name__)
 
@@ -17,6 +18,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 db.init_app(app)
+
+CORS(app)
 
 
 # app.register_blueprint(api, url_prefix='/api')

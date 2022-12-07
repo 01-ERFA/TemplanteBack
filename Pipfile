@@ -16,3 +16,7 @@ pymysql = "*"
 
 [requires]
 python_version = "3.10"
+
+[scripts]
+start="python app.py"
+init="flask db init"
