@@ -1,6 +1,46 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<h1 class="title">API - TEST</h1>
+<h1 class="title">API - TASKS && TEST</h1>
+
+<form class="section" action="/tasks" method="post">
+    <section>
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="description", placeholder="description">
+    </section>
+
+    <div>
+        <button type="submit">Save Task</button>
+    </div>
+</form>
+
+
+<form class="section" action="/tasks" method="get">
+
+    
+    <section class="test_table">
+        <h3 class="subtitle">here are the results: </h3>
+        <ul>
+            <li class="slogan">Title of Tasks</li>
+            {% for task in tasks %}
+            <li>
+                {{task.id}}. {{task.title}}
+            </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            <li class="slogan">Description of Tasks</li>
+            {% for task in tasks %}
+            <li>
+                {{task.id}}. {{task.description}}
+            </li>     
+            {% endfor %}
+        </ul>
+    </section>
+    <div>
+        <button type="submit">Show</button>
+    </div>
+</form>
+
 
 {% endblock %}

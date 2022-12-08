@@ -117,7 +117,7 @@ hr{
 .slogan{
     margin-bottom: 20px;
     text-align: center;
-    color: #7f8c8d;
+    color: #7f8c8d !important;
 }
 
 .section{
@@ -135,6 +135,44 @@ hr{
     text-align: center;
     color: #2ecc71;
     margin-top: 20px;
+}
+
+.section section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.section section *{
+    padding: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.section button{
+    padding: 10px 20px;
+    margin-right: 6vw;
+    margin-top: 10px;
+}
+
+.section div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.test_table{
+    display: flex;
+    justify-content: center;
+    background: #505BDA;
+}
+
+.test_table ul {
+    display: block !important;
 }
 
 @media (min-width: 768px) {
@@ -173,5 +211,10 @@ hr{
     .section ul {
         display: flex;
         justify-content: center;
+    }
+
+    .section section {
+        flex-direction: row;
+        align-items: center;
     }
 }
