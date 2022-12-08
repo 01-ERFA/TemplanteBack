@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from routes.site import home, docs, test
+from routes.site import site
 from utils.utils import db
 from flask_cors import CORS
 
@@ -21,6 +21,4 @@ migrate.init_app(app, db)
 CORS(app)
 
 # app.register_blueprint(api, url_prefix='/api')
-app.register_blueprint(home)
-app.register_blueprint(docs)
-app.register_blueprint(test)
+app.register_blueprint(site)
