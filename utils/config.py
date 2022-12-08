@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 from utils.utils import migrate
 
-app = Flask(__name__, template_folder="../templates")
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 db_url = os.getenv("DATABASE_URL")
 secret_key = os.getenv("SECRET_KEY")
