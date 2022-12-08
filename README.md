@@ -1,34 +1,42 @@
-#About the REST API template
+<h1>About the REST API template</h1>
 
 - Clone repository
 
-###- Important! Do not move terminal path!
+- <h2>Important! Do not move terminal path!</h2>
 *The terminal path should always be where the project is hosted*
 
-- ####Project dependencies
+- <h3>Project dependencies</h3>
+
 	- python 3.10
+
 	- pipenv
 
-- ####Command of init
-$`pipenv install && pipenv shell`
+- <h3>Command of init</h3>
 
-- ####Command to create the .env file
-$`pipenv run env`
+	`pipenv install && pipenv shell`
 
-- ##Connect your database in the .env file
+- <h3>Command to create the .env file</h3>
 
-- ####Command to start the database tables
-$`pipenv run init && pipenv run migrate && pipenv run upgrade`
+	`pipenv run env`
 
-- ####Command to start the rest api
-$`pipenv run start`
+- <h3>Connect your database in the .env file</h3>
 
-- ##IMPORTANT!
-	- #####Every time the "models" are modified, execute this command
-	$`pipenv run migrate && pipenv run upgrade`
+- <h3>Command to start the database tables</h3>
 
-<hr>
-######To learn more about this template, start the project and read the documentation that is in the project!
-<hr>
-######- Created by 01-ERFA
+	`pipenv run init && pipenv run migrate && pipenv run upgrade`
+
+- <h3>Command to start the rest api</h3>
+
+	`pipenv run start`
+
+- <h2>IMPORTANT!</h2>
+
+	- <h4>Every time the "models" are modified, execute this command</h4>
+	
+		`pipenv run migrate && pipenv run upgrade`
+
+
+*To learn more about this template, start the project and read the documentation that is in the project!*
+
+	- Created by 01-ERFA
 
