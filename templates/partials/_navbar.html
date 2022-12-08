@@ -1,6 +1,8 @@
 <nav class="navbar">
     <div>
-        <img class="logo" src="{{url_for('static', filename='favicon.ico')}}" />
+        <a href="/">
+            <img class="logo" src="{{url_for('static', filename='favicon.ico')}}" />
+        </a>
         <div id="menuCompress">
             <hr>
             <hr>
@@ -9,13 +11,19 @@
     </div>
     <ul id="navbar_menu">
         <li>
-            Home
+            <a href="/">
+                Home
+            </a>
         </li>
         <li>
-            Testing
+            <a href="/testing">
+                Testing
+            </a>
         </li>
         <li>
-            Docs
+            <a href="/docs">
+                Docs
+            </a>
         </li>
     </ul>
 </nav>
