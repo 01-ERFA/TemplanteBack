@@ -1,10 +1,10 @@
 import os
 
 path = os.getcwd()
-
 path = path+'"\ \"'.replace(" ", "").replace('"', '')
 
 db_name = os.getenv("DB_NAME") if os.getenv("DB_NAME") != None else ""
+
 
 db_reset = {
     "command": {

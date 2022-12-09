@@ -42,7 +42,7 @@ while action < len(args.command):
     match command:
         case 'env':
             try:
-                create_env(12351245)
+                create_env()
             except:
                 animation(50, 32, scripts['messages']['create_env']['env_failed_unexpected'], 0.07)
         case 'animation':
