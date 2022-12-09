@@ -1,5 +1,11 @@
 import os
 
+path = os.getcwd()
+
+path = path+'"\ \"'.replace(" ", "").replace('"', '')
+
+db_name = os.getenv("DB_NAME") if os.getenv("DB_NAME") != None else ""
+
 create_env = {
     "env_success": "Created .env file",
     "env_failed": "The .env exist"
@@ -7,8 +13,8 @@ create_env = {
 
 db_reset = {
     "command": {
-        "drop": "DROP DATABASE "+ os.getenv("DB_NAME") + ";",
-        "create": "CREATE DATABASE " + os.getenv("DB_NAME") + ";",
+        "drop": "DROP DATABASE "+ db_name + ";",
+        "create": "CREATE DATABASE " + db_name + ";",
         "reset": "pipenv run init && pipenv run migrate && pipenv run upgrade"
     },
     "messages": {
