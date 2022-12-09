@@ -14,16 +14,15 @@ def sitemap():
 def docs_page():
     return render_template('docs.html')
 
-@site.route('/tasks', methods=['GET'])
+@site.route('/testing', methods=['GET'])
 def get_all_tasks():
     tasks = Task.query.all()
     return render_template('test.html', tasks=tasks)
 
-@site.route('/tasks', methods=['POST'])
+@site.route('/testing', methods=['POST'])
 def save_tasks():
     new_task = Task(title=request.form['title'], description=request.form['description'])
     
     session.add(new_task)
     session.commit()
-    tasks = Task.query.all()
-    return render_template('test.html', tasks=tasks)
+    return redirect('/testing')

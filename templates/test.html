@@ -3,7 +3,7 @@
 
 <h1 class="title">API - TASKS && TEST</h1>
 
-<form class="section" action="/tasks" method="post">
+<form class="section" action="/testing" method="post">
     <section>
         <input type="text" name="title" placeholder="title">
         <input type="text" name="description", placeholder="description">
@@ -15,9 +15,7 @@
 </form>
 
 
-<form class="section" action="/tasks" method="get">
-
-    
+<div class="section">
     <section class="test_table">
         <h3 class="subtitle">here are the results: </h3>
         <ul>
@@ -37,10 +35,7 @@
             {% endfor %}
         </ul>
     </section>
-    <div>
-        <button type="submit">Show</button>
-    </div>
-</form>
+</div>
 
 
 {% endblock %}
