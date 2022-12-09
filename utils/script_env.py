@@ -6,6 +6,6 @@ if os.path.exists(path+".env"):
 else:
     env = open(".env", "w")
     env.write(
-        "FLASK_DEBUG=development \nDATABASE_URL=mysql+pymysql://user:password@localhost:3306/db_name \nDB_NAME=db_name \nSECRET_KEY=secretkey",
+        "\n# Your environment variables will go here, to use them import the 'os' module and use it as an example: os.getenv('NAME') \n \nFLASK_DEBUG=development \n \nDATABASE_URL=mysql+pymysql://user:password@localhost:3306/db_name \n \nDB_NAME=db_name \n \nSECRET_KEY=secretkey",
     )
     print(create_env["env_success"])
