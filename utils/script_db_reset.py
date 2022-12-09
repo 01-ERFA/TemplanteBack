@@ -1,11 +1,10 @@
 import os, shutil
 from subprocess import check_output
 from utils import engine
-from date import db_reset
+from date import path, db_reset
 
 
-path = os.getcwd()
-if os.path.exists(path+'"\ \"'.replace(" ", "").replace('"', '')+"migrations"):
+if os.path.exists(path+"migrations"):
     try:
         shutil.rmtree(path+'"\ \"'.replace(" ", "").replace('"', '')+"migrations")
         engine.execute(db_reset["command"]["drop"])
