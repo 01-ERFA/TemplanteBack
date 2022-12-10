@@ -1,18 +1,13 @@
 import os
 from flask import Flask
-from routes.site import site
-from utils.utils import db
 from flask_cors import CORS
-
-from utils.utils import migrate
+from routes.site import site
+from utils.setup import db, migrate, get_db_url, get_secret_key
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
-db_url = os.getenv("DATABASE_URL")
-secret_key = os.getenv("SECRET_KEY")
-
-app.config['SECRET_KEY'] = secret_key
-app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+app.config['SECRET_KEY'] = get_secret_key
+app.config['SQLALCHEMY_DATABASE_URI'] = get_db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -20,5 +15,5 @@ migrate.init_app(app, db)
 
 CORS(app)
 
-# app.register_blueprint(api, url_prefix='/api')
 app.register_blueprint(site)
+# app.register_blueprint(api, url_prefix='/api')

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, request
 from models.tasks import Task
-from utils.session import session
+from utils.setup import session
 
 
 site = Blueprint('site', __name__)

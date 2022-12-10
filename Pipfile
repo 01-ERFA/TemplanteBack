@@ -18,10 +18,10 @@ pymysql = "*"
 python_version = "3.10"
 
 [scripts]
-start="python app.py"
 create_env="python ./utils/scripts.py -c create_env"
 delete_env="python ./utils/scripts.py -c delete_env"
-db_reset="python ./utils/script_db_reset.py"
 init="python ./utils/scripts.py -c flask_init"
 migrate="python ./utils/scripts.py -c flask_migrate"
 upgrade="python ./utils/scripts.py -c flask_upgrade"
+db_reset="python ./utils/scripts.py -c db_reset"
+start="python app.py"
