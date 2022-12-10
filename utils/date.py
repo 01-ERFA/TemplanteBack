@@ -45,7 +45,10 @@ scripts = {
                 "failed_unexpected": "ERROR: unexpected error"
             },
             "migrate": {
-                "flask_success": "SECCESS: flask migrate success",
+                "flask_success": "SUCCESS: flask migrate success, run 'pipenv run upgrade' to upgrade your database",
+            },
+            "upgrade": {
+                "flask_success": "SUCCESS: your database has been updated"
             }
         }
     },
