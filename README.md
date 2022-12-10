@@ -8,7 +8,7 @@
 
 
 
-![bash_path.PNG](https://github.com/01-ERFA/TemplanteBack/blob/master/static/img/assets/bash_path.PNG)
+![shell.PNG](https://github.com/01-ERFA/TemplanteBack/blob/master/static/img/assets/shell.PNG)
 
 - <h3>Project dependencies</h3>
 
