@@ -37,6 +37,11 @@ scripts = {
             "env_success": "SUCCESS: deleted the .env file",
             "env_failed": "SUCCESS: the .env file does not exist, could not be deleted",
             "env_failed_unexpected":"ERROR: unexpected error"
+        },
+        "flask": {
+            "flask_success": "SUCCESS: flask init success",
+            "failed_unexpected": "ERROR: unexpected error",
+            "failed_exist": "ERROR: flask has already started"
         }
     },
     "content":{
@@ -49,5 +54,10 @@ scripts = {
             "secret_key": "\nSECRET_KEY=",
             "line_separator": " \n ",
         }
+    },
+    "commands_developing": {
+        "flask_init": "flask --debug db init",
+        "flask_migrate": "flask --debug db migrate",
+        "flask_upgrade": "flask --debug db upgrade"
     }
 }

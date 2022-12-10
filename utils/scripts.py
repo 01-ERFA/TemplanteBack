@@ -1,5 +1,5 @@
 import os, time, argparse, getpass, shutil
-# from subprocess import check_output
+from subprocess import check_output
 from date import scripts, path
 
 parser = argparse.ArgumentParser()
@@ -57,6 +57,12 @@ def delete_env():
     else:
         animation(50, 0, 41, scripts['messages']['delete_env']['env_failed'], 0.03)
 
+def flask_init():
+    try:
+        check_output(scripts['commands_developing']['flask_init'])
+        animation(50, 0, 0, scripts['messages']['flask']['flask_success'], 0.03)
+    except:
+        animation(50, 0, 34, scripts['messages']['flask']['failed_exist'], 0.07)
 
 
 
@@ -64,14 +70,19 @@ action = 0
 while action < len(args.command):
     command = args.command[action]
     match command:
+        case 'flask_init':
+            try:
+                flask_init()
+            except:
+                animation(50, 0, 37, scripts['messages']['flask']['failed_unexpected'], 0.07)
+        case 'animation':
+            space(1)
+            animation(50, 5, 0, "animation", 0.6)
         case 'create_env':
             try:
                 create_env()
             except:
                 animation(50, 0, 32, scripts['messages']['create_env']['env_failed_unexpected'], 0.07)
-        case 'animation':
-            space(1)
-            animation(50, 5, 0, "animation", 0.6)
         case 'delete_env':
             try:
                 delete_env()
