@@ -60,9 +60,9 @@ def delete_env():
 def flask_init():
     try:
         check_output(scripts['commands_developing']['flask_init'])
-        animation(50, 0, 0, scripts['messages']['flask']['flask_success'], 0.03)
+        animation(50, 0, 0, scripts['messages']['flask']['init']['flask_success'], 0.03)
     except:
-        animation(50, 0, 34, scripts['messages']['flask']['failed_exist'], 0.07)
+        animation(50, 0, 34, scripts['messages']['flask']['init']['failed_exist'], 0.07)
 
 
 
@@ -74,7 +74,7 @@ while action < len(args.command):
             try:
                 flask_init()
             except:
-                animation(50, 0, 37, scripts['messages']['flask']['failed_unexpected'], 0.07)
+                animation(50, 0, 37, scripts['messages']['flask']['init']['failed_unexpected'], 0.07)
         case 'animation':
             space(1)
             animation(50, 5, 0, "animation", 0.6)

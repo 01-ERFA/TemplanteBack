@@ -39,9 +39,11 @@ scripts = {
             "env_failed_unexpected":"ERROR: unexpected error"
         },
         "flask": {
-            "flask_success": "SUCCESS: flask init success",
-            "failed_unexpected": "ERROR: unexpected error",
-            "failed_exist": "ERROR: flask has already started"
+            "init":{
+                "flask_success": "SUCCESS: flask init success",
+                "failed_exist": "ERROR: flask has already started",
+                "failed_unexpected": "ERROR: unexpected error"
+            }
         }
     },
     "content":{
