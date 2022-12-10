@@ -1,4 +1,4 @@
-import os, time, argparse
+import os, time, argparse, getpass
 # from subprocess import check_output
 from date import scripts, path
 
@@ -35,10 +35,20 @@ def create_env():
     if os.path.exists(path+'.env'):
         animation(50, 0, 0, scripts['messages']['create_env']['env_failed'], 0.03)
     else:
+        space(1)
+        print("the data entered will not be displayed on the screen")
+        user = getpass.getpass('your user of your database: ')
+        pswd = getpass.getpass('password: ')
+        db_name = getpass.getpass('database name: ')
+        secret_key = getpass.getpass('enter a new secret key: ')
+        space(1)
         env = open('.env', 'w')
-        env.write(scripts['content']['create_env'])
-        animation(50, 0, 0, scripts['messages']['create_env']['env_success'], 0.03)
+        env_content=scripts['content']['create_env']['comment']+scripts['content']['create_env']['developing']+scripts['content']['create_env']['database_url_start']+user+":"+pswd+scripts['content']['create_env']['database_url_end']+db_name+scripts['content']['create_env']['line_separator']+scripts['content']['create_env']['database_name']+db_name+scripts['content']['create_env']['line_separator']+scripts['content']['create_env']['secret_key']+secret_key+scripts['content']['create_env']['line_separator']
+        env.write(env_content)
+        animation(50, 0, 0, scripts['messages']['create_env']['env_success'], 0.04)
+        
 
+        # db_name and secret_key
 action = 0
 while action < len(args.command):
     command = args.command[action]

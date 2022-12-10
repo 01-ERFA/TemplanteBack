@@ -30,6 +30,14 @@ scripts = {
         }
     },
     "content":{
-        "create_env": "\n# Your environment variables will go here, to use them import the 'os' module and use it as an example: os.getenv('NAME') \n \nFLASK_DEBUG=development \n \nDATABASE_URL=mysql+pymysql://user:password@localhost:3306/db_name \n \nDB_NAME=db_name \n \nSECRET_KEY=secretkey"
+        "create_env": {
+            "comment": "\n# Your environment variables will go here, to use them import the 'os' module and use it as an example: os.getenv('NAME') \n ",
+            "developing": "\nFLASK_DEBUG=development \n ",
+            "database_url_start": "\nDATABASE_URL=mysql+pymysql://",
+            "database_url_end":"@localhost:3306/",
+            "database_name": "\nDB_NAME=",
+            "secret_key": "\nSECRET_KEY=",
+            "line_separator": " \n ",
+        }
     }
 }
