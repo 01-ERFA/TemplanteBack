@@ -24,8 +24,18 @@ scripts = {
     "messages": {
         "script_help": "scripts for the template, see the documentation on the template.",
         "create_env" : {
+            "start_message": "the data entered will not be displayed on the screen",
+            "user": "your user of your database: ",
+            "pswd": "password: ",
+            "db_name": "database name: ",
+            "secret_key": "enter a new secret key: ",
             "env_success": "SUCCESS: added the .env file",
             "env_failed": "SUCCESS: the .env file exists, the file was not modified",
+            "env_failed_unexpected":"ERROR: unexpected error"
+        },
+        "delete_env": {
+            "env_success": "SUCCESS: deleted the .env file",
+            "env_failed": "SUCCESS: the .env file does not exist, could not be deleted",
             "env_failed_unexpected":"ERROR: unexpected error"
         }
     },

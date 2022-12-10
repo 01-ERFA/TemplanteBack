@@ -19,7 +19,8 @@ python_version = "3.10"
 
 [scripts]
 start="python app.py"
-env="python ./utils/scripts.py -c env"
+create_env="python ./utils/scripts.py -c create_env"
+delete_env="python ./utils/scripts.py -c delete_env "
 init="flask --debug db init"
 db_reset="python ./utils/script_db_reset.py"
 migrate="flask --debug db migrate"

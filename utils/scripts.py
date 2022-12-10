@@ -1,4 +1,4 @@
-import os, time, argparse, getpass
+import os, time, argparse, getpass, shutil
 # from subprocess import check_output
 from date import scripts, path
 
@@ -33,27 +33,38 @@ def animation(large, start, short_end , message, sequence):
 
 def create_env():
     if os.path.exists(path+'.env'):
-        animation(50, 0, 0, scripts['messages']['create_env']['env_failed'], 0.03)
+        animation(50, 0, 39, scripts['messages']['create_env']['env_failed'], 0.03)
     else:
         space(1)
-        print("the data entered will not be displayed on the screen")
-        user = getpass.getpass('your user of your database: ')
-        pswd = getpass.getpass('password: ')
-        db_name = getpass.getpass('database name: ')
-        secret_key = getpass.getpass('enter a new secret key: ')
+        print(scripts['messages']['create_env']['start_message'])
+        user = getpass.getpass(scripts['messages']['create_env']['user'])
+        pswd = getpass.getpass(scripts['messages']['create_env']['pswd'])
+        db_name = getpass.getpass(scripts['messages']['create_env']['db_name'])
+        secret_key = getpass.getpass(scripts['messages']['create_env']['secret_key'])
         space(1)
         env = open('.env', 'w')
         env_content=scripts['content']['create_env']['comment']+scripts['content']['create_env']['developing']+scripts['content']['create_env']['database_url_start']+user+":"+pswd+scripts['content']['create_env']['database_url_end']+db_name+scripts['content']['create_env']['line_separator']+scripts['content']['create_env']['database_name']+db_name+scripts['content']['create_env']['line_separator']+scripts['content']['create_env']['secret_key']+secret_key+scripts['content']['create_env']['line_separator']
         env.write(env_content)
-        animation(50, 0, 0, scripts['messages']['create_env']['env_success'], 0.04)
+        animation(50, 0, 0, scripts['messages']['create_env']['env_success'], 0.05)
         
+def delete_env():
+    if os.path.exists(path+'.env'):
+        try:
+            os.remove(path+'.env')
+            animation(50, 0, 0, scripts['messages']['delete_env']['env_success'], 0.05)
+        except:
+            animation(50, 0, 32, scripts['messages']['create_env']['env_failed_unexpected'], 0.07)
+    else:
+        animation(50, 0, 41, scripts['messages']['delete_env']['env_failed'], 0.03)
 
-        # db_name and secret_key
+
+
+
 action = 0
 while action < len(args.command):
     command = args.command[action]
     match command:
-        case 'env':
+        case 'create_env':
             try:
                 create_env()
             except:
@@ -61,6 +72,11 @@ while action < len(args.command):
         case 'animation':
             space(1)
             animation(50, 5, 0, "animation", 0.6)
+        case 'delete_env':
+            try:
+                delete_env()
+            except:
+                animation(50, 0, 43, scripts['messages']['delete_env']['env_failed_unexpected'], 0.07)
         case _:
             print('\n')
             print(r"ERROR: could not find command: %r" %command)
