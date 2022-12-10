@@ -6,6 +6,10 @@
 
 *The terminal path should always be where the project is hosted*
 
+
+
+[!Image](https://github.com/01-ERFA/TemplanteBack/blob/master/static/img/assets/bash_path.PNG)
+
 - <h3>Project dependencies</h3>
 
 	- python 3.10
@@ -18,7 +22,7 @@
 
 <h3>Command to create the .env file</h3>
 
-	pipenv run env
+	pipenv run create_env
 
 <h3>Connect your database in the .env file</h3>
 
