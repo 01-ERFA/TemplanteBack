@@ -1,6 +1,6 @@
 import os, time, argparse, getpass, shutil
 from subprocess import check_output
-from date import scripts, path
+from date import scripts, path, exist_env
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-c', '--command', type=str, help=scripts['messages']['script_help'], nargs='*')
@@ -32,7 +32,7 @@ def animation(large, start, short_end , message, sequence):
         short_end+=1
 
 def create_env():
-    if os.path.exists(path+'.env'):
+    if exist_env:
         animation(50, 0, 39, scripts['messages']['create_env']['env_failed'], 0.03)
     else:
         try:
@@ -51,7 +51,7 @@ def create_env():
             animation(50, 0, 32, scripts['messages']['create_env']['env_failed_unexpected'], 0.07)
         
 def delete_env():
-    if os.path.exists(path+'.env'):
+    if exist_env:
         try:
             os.remove(path+'.env')
             animation(50, 0, 0, scripts['messages']['delete_env']['env_success'], 0.05)
@@ -68,13 +68,17 @@ def flask_init():
         animation(50, 0, 34, scripts['messages']['flask']['init']['failed_exist'], 0.07)
 
 def flask_migrate():
-    check_output(scripts['commands_developing']['flask_migrate'])
-    animation(50, 0, 0, scripts['messages']['flask']['migrate']['flask_success'], 0.03)
-
+    if exist_env:
+        check_output(scripts['commands_developing']['flask_migrate'])
+        animation(50, 0, 0, scripts['messages']['flask']['migrate']['flask_success'], 0.03)
+    else:
+        animation(50, 0, 47, scripts['messages']['create_env']['create'], 0.04)
 def flask_upgrade():
-    check_output(scripts['commands_developing']['flask_upgrade'])
-    animation(50, 0, 0, scripts['messages']['flask']['upgrade']['flask_success'], 0.03)
-
+    if exist_env:
+        check_output(scripts['commands_developing']['flask_upgrade'])
+        animation(50, 0, 0, scripts['messages']['flask']['upgrade']['flask_success'], 0.03)
+    else:
+        animation(50, 0, 46, scripts['messages']['create_env']['create'], 0.04)
 
 action = 0
 while action < len(args.command):

@@ -2,6 +2,7 @@ import os
 
 path = os.getcwd()
 path = path+'"\ \"'.replace(" ", "").replace('"', '')
+exist_env = os.path.exists(path+'.env')
 
 db_name = os.getenv("DB_NAME") if os.getenv("DB_NAME") != None else ""
 
@@ -24,6 +25,7 @@ scripts = {
     "messages": {
         "script_help": "scripts for the template, see the documentation on the template.",
         "create_env" : {
+            "create": "you don't have the .env file yet, create it with 'pipenv run create_env'",
             "start_message": "the data entered will not be displayed on the screen",
             "user": "your user of your database: ",
             "pswd": "password: ",
