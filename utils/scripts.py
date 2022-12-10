@@ -67,12 +67,21 @@ def flask_init():
     except:
         animation(50, 0, 34, scripts['messages']['flask']['init']['failed_exist'], 0.07)
 
+def flask_migrate():
+    check_output(scripts['commands_developing']['flask_migrate'])
+    animation(50, 0, 0, scripts['messages']['flask']['migrate']['flask_success'], 0.03)
+
 
 
 action = 0
 while action < len(args.command):
     command = args.command[action]
     match command:
+        case 'flask_migrate':
+            try:
+                flask_migrate()
+            except:
+                animation(50, 0, 37, '', 0.07)
         case 'flask_init':
             try:
                 flask_init()

@@ -43,6 +43,9 @@ scripts = {
                 "flask_success": "SUCCESS: flask init success",
                 "failed_exist": "ERROR: flask has already started",
                 "failed_unexpected": "ERROR: unexpected error"
+            },
+            "migrate": {
+                "flask_success": "SECCESS: flask migrate success",
             }
         }
     },
